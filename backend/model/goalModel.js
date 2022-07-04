@@ -11,3 +11,5 @@ const goalSchema = mongoose.Schema(
         timestamps: true //automatically creates timestamps
     }
 )
+
+module.exports = mongoose.model('Goal', goalSchema)
