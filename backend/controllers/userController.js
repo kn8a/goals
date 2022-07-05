@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const User = require('../model/userModel')
+const { readSync } = require('fs')
 
 // @desc register new user
 // @route POST /api/users
@@ -70,9 +71,15 @@ const loginUser = asyncHandler( async (req,res) => {
 
 // @desc Get user data
 // @route GET /api/users/me
-// @access Public
+// @access Private
 const getMe = asyncHandler( async (req,res) => {
-    res.json({message: 'display user data'})
+    const {_id,name,email} = await User.findById(req.user.id)
+    res.status(200) //ok
+    res.json({
+        id: _id,
+        name: name,
+        email: email
+    })
 })
 
 
