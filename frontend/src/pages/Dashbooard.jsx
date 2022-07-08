@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 //rfce snippet:
 
@@ -11,10 +14,18 @@
 
 // export default Dashbooard
 
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function Dashbooard() {
-  return (
+  
+    const navigate = useNavigate()
+    const {user} = useSelector((state) => state.auth)
+
+    useEffect(() => {
+        
+    }, [user, navigate])
+
+    return (
     <div>Dashbooard</div>
   )
 }
