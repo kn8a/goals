@@ -14,7 +14,6 @@ import { useSelector } from 'react-redux'
 
 // export default Dashbooard
 
-import React, { useEffect } from 'react'
 
 function Dashbooard() {
   
@@ -22,7 +21,9 @@ function Dashbooard() {
     const {user} = useSelector((state) => state.auth)
 
     useEffect(() => {
-        
+        if(!user) {
+            navigate('/login')
+        }
     }, [user, navigate])
 
     return (
