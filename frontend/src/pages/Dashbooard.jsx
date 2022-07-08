@@ -27,7 +27,12 @@ function Dashbooard() {
     }, [user, navigate])
 
     return (
-    <div>Dashbooard</div>
+    <>
+        <section className='heading'>
+            <h1>Welcome {user && user.name}</h1>
+            <p>Goals Dashboard</p>
+        </section>
+    </>
   )
 }
 
